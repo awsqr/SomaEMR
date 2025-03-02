@@ -13,13 +13,20 @@ db = {7: 'healthy',
 app.mount('/static', StaticFiles(directory='static'), name='static')
 templates = Jinja2Templates(directory='templates')
 
-
 @app.get('/')
 def read_root(request: Request):
     return templates.TemplateResponse(
         'index.html',
         {'request': request,
          'title': 'Soma EMR Home'}
+    )
+
+@app.get('/login')
+def login(request: Request):
+    return templates.TemplateResponse(
+        'index.html',
+        {'request': request,
+         'title': 'Soma EMR Login'}
     )
 
 @app.get('/records/{patient_id}')

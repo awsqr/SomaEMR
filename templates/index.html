@@ -1,48 +1,167 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://source.unsplash.com/random/1920x1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 80px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-header">
-            <h1>Soma EMR</h1>
-            <p>Please sign in to continue</p>
-        </div>
-
-        <form id="loginForm" action="/login" method="POST">
-            <div class="form-group">
-                <label for="username">Username or Email</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    required
-                    placeholder="Enter your username or email"
-                >
+    <header>
+        <nav>
+            <div class="logo">Soma EMR</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
             </div>
+        </nav>
+    </header>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                    placeholder="Enter your password"
-                    minlength="8"
-                >
-            </div>
-
-            <button type="submit">Sign In</button>
-        </form>
-
-        <div class="additional-links">
-            <a href="#forgot-password">Forgot password?</a>
-            <br>
-            <span>Don't have an account? <a href="#signup">Sign up</a></span>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Our Platform</h1>
+            <p>Discover amazing features that will revolutionize your experience</p>
+            <a href="#contact" class="cta-button">Get Started</a>
         </div>
-    </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2 style="text-align: center; font-size: 36px;">Our Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Feature 1</h3>
+                <p>Designed with accessibility in mind.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Feature 2</h3>
+                <p>Easily provide patients a copy of their records</p>
+            </div>
+            <div class="feature-card">
+                <h3>Feature 3</h3>
+                <p>Reduce risks and Errors. Increase efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 Soma EMR. All rights reserved.</p>
+    </footer>
 </body>
 </html>
